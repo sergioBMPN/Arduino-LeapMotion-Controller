@@ -9,9 +9,10 @@
     · Coche teledirigio
     
 ## Software
-   · Para el reconocimiento de manos hemos utilizado Processing. Hemos necesitado además añadir una librería externa:
-        leapmotion
-    · La implementación del coche está desarrollada en la propia aplicación de Arduino. En la versión actual del proyecto no se encuentra implementado, pero se espera añadir un módulo bluetooth para comunicar de forma inalámbrica el reconocimiento de manos y el coche.
+Para el reconocimiento de manos hemos utilizado Processing. Hemos necesitado además añadir una librería externa: leapmotion
+
+La implementación del coche está desarrollada en la propia aplicación de Arduino.
+En la versión actual del proyecto no se encuentra implementado, pero se espera añadir un módulo bluetooth para comunicar de forma inalámbrica el reconocimiento de manos y el coche.
 
 ## Version
     V1.0
