@@ -1,39 +1,30 @@
 import de.voidplus.leapmotion.*;
 import processing.serial.*;
 
-// ======================================================
-// Table of Contents:
-// ├─ 1. Swipe Gesture
-// ├─ 2. Circle Gesture
-// ├─ 3. Screen Tap Gesture
-// └─ 4. Key Tap Gesture
-// ======================================================
-
-
 LeapMotion leap;
 Serial myPort;  // Create object from Serial class
-int Aizq=-1;
-int Adch=-1;
+String portName; // Puerto de conexion al coche
+
+int Left_go; // Aceleracion de la rueda izquierda
+int Right_go; // Aceleracion de la rueda derecha
 
 void setup(){
   size(800, 500);
   background(255);
-  // ...
+  // ...   
   
-  leap = new LeapMotion(this);//.allowGestures("swipe");  // Leap detects only swipe gestures
-  //ArrayList ports = new ArrayList<String>();
-  //ports=Serial.list();
-  //if(length()>0)
-
-  String portName = Serial.list()[0];
+  leap = new LeapMotion(this); // Instancia de LeapMotion
+ 
+  portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
+  Right_go=-1;
+  Left_go=-1;
 }
 
 void draw(){
   background(255);
   // ...
   ///*
-  
     ArrayList hands = new ArrayList<Hand>();
     if(leap.getHands()!=null){
       hands = leap.getHands();
@@ -46,45 +37,45 @@ void draw(){
       if(hand.isLeft()){
         if(hand.getGrabStrength()>=0.7){ 
           println("Acelera Izq");
-          Aizq=1;
+          Left_go=1;
         }
         else {
            println("Frena Izq");
-           Aizq=0;
+           Left_go=0;
         }
       }
       if(hand.isRight()){
         if(hand.getGrabStrength()>=0.7){
           println("Acelera Der");
-          Adch=1;
+          Right_go=1;
         }
         else {
            println("Frena Der");
-           Adch=0;
+           Right_go=0;
         }
       }      
     }
   }
    else
    {
-     Adch=-1; 
-     Aizq=-1;
+     Right_go=-1; 
+     Left_go=-1;
    }
       HandController();
 }
 
 void HandController()
 {
-  if(Aizq==1 && Adch==1){
+  if(Left_go==1 && Right_go==1){
     myPort.write('w'); 
   }
-  else if(Aizq==0 && Adch==0){
+  else if(Left_go==0 && Right_go==0){
     myPort.write('s'); 
   }
-  else if(Aizq==1 && Adch==0){
+  else if(Left_go==1 && Right_go==0){
     myPort.write('a'); 
   }
-  else if(Aizq==0 && Adch==1){
+  else if(Left_go==0 && Right_go==1){
     myPort.write('d'); 
   }
   else{
