@@ -13,9 +13,8 @@ int Right_motor_back = 10;
 int Right_motor_en = 8; 
 int Left_motor_en = 7; 
 
-int speed= 210;
+int speed= 250;
 /*Set Button port*/
-int key=4;
 
 
 void setup()
@@ -30,9 +29,6 @@ void setup()
   pinMode(Right_motor_go,OUTPUT);
   pinMode(Right_motor_back,OUTPUT);
   
-  pinMode(key,INPUT);// Set button as input
-  
-  digitalWrite(key,HIGH);//Initialize button
 }
 
 //=======================Motor=========================
