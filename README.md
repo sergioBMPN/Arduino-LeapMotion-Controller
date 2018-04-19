@@ -1,6 +1,6 @@
 # LeapMotion ArduinoCar
-  
-  ![Portada](https://picasaweb.google.com/110619124009645935420/6546087206856998177#6546087206752787474 "Arduino Leap")
+![](https://lh3.googleusercontent.com/loUFb6kxG-T1pC1tTu5Z9IL3Yk9TqI72VfyEQzdyPu-0Y9JHqweUjc4zTjZPxeJX-shk8djQS0i- "portada")  
+
 ## Descripcion
    Este es un proyecto desarrollado para la asignatura Taller de innovación (3ºIDCD, U-TAD) El fin de este proyecto es la creación de un coche teledirigido construido con un Arduino UNO. Para controlar el coche hemos utilizado la tecnología de LeapMotion que permite reconocer las manos del usuario y hemos implementado una interfaz que permite conducir el vehículo con las mismas.
    
