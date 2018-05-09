@@ -101,7 +101,12 @@ void keyPressed() //Cuando se pulsa una tecla
   {
     myPort.write('d'); 
   }
-  //Pulsar la tecla E para salir del programa
+  else if(key=='d'||key=='D')
+  {
+    println("luces");
+    myPort.write('l'); 
+    
+  }
   else
   {
     myPort.write('F'); // Escribe los datos restantes en el archivo

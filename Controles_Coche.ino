@@ -12,16 +12,20 @@ int Right_motor_go = 6;
 int Right_motor_back = 10; 
 int Right_motor_en = 8; 
 int Left_motor_en = 7; 
-
+int luces = 11
 int speed= 250;
 /*Set Button port*/
+bool LIGHTS_ON = false;
 
-
+w
 void setup()
 {
   //BT1.flash();
   //BT1.begin(9600);
   Serial.begin(9600);
+
+  pinMode(luces, OUTPUT);
+
   
   //Initialize motor drive for output mode
   pinMode(Left_motor_go,OUTPUT); 
@@ -116,9 +120,23 @@ void back()  //back off
   //delay(time * 100); 
 }  
 
+void lights()
+{
+  if(LIGHTS_ON)
+    {
+      digitalWrite(luces, LOW);    // turn the LED off by making the voltage LOW
+      LIGHTS_ON= false;
+    }
+  else{
+    digitalWrite(luces, HIGH);   // turn the LED on (HIGH is the voltage level)
+    LIGHTS_ON= true;
+  }
+}
+
 /*main loop*/
 void loop()
 {
+  
    if (Serial.available()>0){   
      switch (Serial.read())
      {
@@ -137,6 +155,10 @@ void loop()
        case 'a':
        case 'A':
        left();
+       break;
+       case 'l':
+       case 'L':
+       lights();
        break;
        case 'f':
        case 'F':
